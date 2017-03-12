@@ -12,6 +12,17 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
+
+
+    <!--这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位-->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <!--用于读取手机当前的状态-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <!--用于申请调用A-GPS模块-->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+
+
+
     <!-- Tell the system this app requires OpenGL ES 2.0. -->
     <uses-feature
         android:glEsVersion="0x00020000"
@@ -68,6 +79,10 @@
             android:name=".AutoHdSampleCamActivity"
             android:configChanges="orientation|keyboardHidden|screenSize" />
         <activity android:name=".activity.AroundActivity"></activity>
+
+        <meta-data android:name="com.amap.api.v2.apikey" android:value="5cbf4c2b960560093292a5b578d34449">
+        </meta-data>
+        <service android:name="com.amap.api.location.APSService"></service>
     </application>
 
 </manifest>

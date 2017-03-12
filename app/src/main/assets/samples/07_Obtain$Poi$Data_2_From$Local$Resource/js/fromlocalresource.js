@@ -39,6 +39,7 @@ var World = {
 				"description": poiData[currentPlaceNr].description
 			};
 
+            AR.logger.info(singlePoi);
 			World.markerList.push(new Marker(singlePoi));
 		}
 
@@ -63,8 +64,11 @@ var World = {
 	// location updates, fired every time you call architectView.setLocation() in native environment
 	locationChanged: function locationChangedFn(lat, lon, alt, acc) {
 
+         AR.logger.info("locationChanged:");
+         AR.logger.info("locationChanged:"+searchInit);
+         AR.logger.info("locationChanged:"+searchInit);
 		// request data if not already present
-		if (!World.initiallyLoadedData) {
+		if (!World.initiallyLoadedData&&searchInit) {
 			World.requestDataFromLocal(lat, lon);
 			World.initiallyLoadedData = true;
 		}
