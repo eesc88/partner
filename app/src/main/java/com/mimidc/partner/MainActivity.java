@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.mimidc.partner.activity.AroundActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     // Used to load the 'native-lib' library on application startup.
@@ -25,10 +27,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    startActivity(new Intent(MainActivity.this,Class.forName("com.mimidc.partner.AutoHdSampleCamActivity")));
+                    startActivity(new Intent(MainActivity.this, Class.forName("com.mimidc.partner.AutoHdSampleCamActivity")));
                 } catch (ClassNotFoundException e) {
                     e.printStackTrace();
                 }
+            }
+        });
+
+        findViewById(R.id.content).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, AroundActivity.class));
             }
         });
 
